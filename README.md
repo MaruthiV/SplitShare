@@ -1,4 +1,6 @@
-# Create T3 App
+# SplitShare
+
+This is a subscription splitting platform. It allows groups of people to be added together as a group and split recurring subscriptions amongst each other using a Stripe API to handle payments.
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
