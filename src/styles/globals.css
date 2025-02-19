@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* temp fix for default x icon on search dashboard page*/
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* bg-gradient-to-br from-[#F7B801]/30 to-[#FF9AE9]/30 */
+.frontpage-animation {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #f7b80130 20%,
+    #ff9ae930 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 10%,
+    black 30%,
+    black 70%,
+    transparent 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 10%,
+    black 30%,
+    black 70%,
+    transparent 90%,
+    transparent 100%
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#scrollL {
+  height: fit-content;
+  position: absolute;
+  overflow: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  left: 0;
+  animation-name: scrollLeft;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#scrollR {
+  height: fit-content;
+  position: absolute;
+  overflow: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  right: 0;
+  animation-name: scrollRight;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.scroller {
+  margin-top: 10;
+  margin-bottom: 10;
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* Shake animation for dashboard/notifications */
+#shake {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: ring 10s 1;
+  animation-delay: 0.5s;
+  transform-origin: 50% 4px;
+}
+
+@keyframes ring {
+  0% {
+    -webkit-transform: rotateZ(0);
+  }
+  1% {
+    -webkit-transform: rotateZ(30deg);
+  }
+  3% {
+    -webkit-transform: rotateZ(-28deg);
+  }
+  5% {
+    -webkit-transform: rotateZ(34deg);
+  }
+  7% {
+    -webkit-transform: rotateZ(-32deg);
+  }
+  9% {
+    -webkit-transform: rotateZ(30deg);
+  }
+  11% {
+    -webkit-transform: rotateZ(-28deg);
+  }
+  13% {
+    -webkit-transform: rotateZ(26deg);
+  }
+  15% {
+    -webkit-transform: rotateZ(-24deg);
+  }
+  17% {
+    -webkit-transform: rotateZ(22deg);
+  }
+  19% {
+    -webkit-transform: rotateZ(-20deg);
+  }
+  21% {
+    -webkit-transform: rotateZ(18deg);
+  }
+  23% {
+    -webkit-transform: rotateZ(-16deg);
+  }
+  25% {
+    -webkit-transform: rotateZ(14deg);
+  }
+  27% {
+    -webkit-transform: rotateZ(-12deg);
+  }
+  29% {
+    -webkit-transform: rotateZ(10deg);
+  }
+  31% {
+    -webkit-transform: rotateZ(-8deg);
+  }
+  33% {
+    -webkit-transform: rotateZ(6deg);
+  }
+  35% {
+    -webkit-transform: rotateZ(-4deg);
+  }
+  37% {
+    -webkit-transform: rotateZ(2deg);
+  }
+  39% {
+    -webkit-transform: rotateZ(-1deg);
+  }
+  41% {
+    -webkit-transform: rotateZ(1deg);
+  }
+  43% {
+    -webkit-transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(0);
+  }
+}
+
+/*
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #23B477;
+}
+::-webkit-scrollbar-thumb {
+    background: #216869;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(
+        180deg,
+        #49A078 31.77%,
+        #9CC5A1 100%
+    );
+    mix-blend-mode: color-dodge;
+    -webkit-animation: move 25s infinite alternate;
+            animation: move 25s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+.blob2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(
+        180deg,
+        #216869 31.77%,
+        #1F2421 100%
+    );
+    mix-blend-mode: color-dodge;
+    -webkit-animation: move2 25s infinite alternate;
+            animation: move2 25s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+  
+@-webkit-keyframes move {
+    from {
+        transform: translate(-100px, -50px) rotate(-90deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+
+    to {
+        transform: translate(200px, 100px) rotate(-10deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+}
+
+@keyframes move {
+    from {
+        transform: translate(-100px, -50px) rotate(-90deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+
+    to {
+        transform: translate(200px, 100px) rotate(-10deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+}
+
+@-webkit-keyframes move2 {
+    from {
+        transform: translate(1000px, 1000px) rotate(-90deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+
+    to {
+        transform: translate(700px, 1100px) rotate(-10deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+}
+
+@keyframes move2 {
+    from {
+        transform: translate(1000px, 1000px) rotate(-90deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+
+    to {
+        transform: translate(700px, 1100px) rotate(-10deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+}
+*/
